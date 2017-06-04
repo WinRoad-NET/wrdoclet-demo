@@ -2,7 +2,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>net.winroad</groupId>
+<<<<<<< HEAD
 		<artifactId>wrdoclet-demo</artifactId>
+=======
+		<artifactId>wrdoclet-parent</artifactId>
+>>>>>>> ed3b93cc296f5194940a285980c925c34ae8aefc
 		<version>1.1.1-SNAPSHOT</version>
 	</parent>
 	
