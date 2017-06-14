@@ -19,6 +19,9 @@ public class Person {
 	private double weight;
 	private Gender gender;
 	private double h;
+	/**
+	 * 是否成人
+	 */
 	private boolean isAdult;
 	private String LOGOURL;
 	private int xIndex;
