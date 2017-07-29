@@ -1,12 +1,25 @@
 package net.winroad.Controller;
 
+import java.io.IOException;
+import java.io.OutputStream;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import net.winroad.Models.Gender;
 import net.winroad.Models.Student;
 
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -14,9 +27,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.ModelAndView;
+
+import sun.misc.Resource;
 
 @Controller
 @RequestMapping("/student")
+@SessionAttributes("student")
 public class StudentController {
 	/**
 	 * @param name the name of student.
@@ -65,7 +85,7 @@ public class StudentController {
 	}
 
 	// TODO: how to handle Object as response?
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	@RequestMapping(value = "/update", method = RequestMethod.POST, params="action")
 	public @ResponseBody
 	Object updateStudent(@RequestHeader("Accept-Encoding") Student student, 
 			@RequestParam(value = "action", required = false) String action) {
@@ -86,9 +106,67 @@ public class StudentController {
 	 * @wr.return login cookie || http cookie
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(HttpServletRequest request) {
+	public String login(HttpServletRequest request, Model model) {
 		String username = request.getParameter("username").trim();
 		return username;
 	}
 	
+	@RequestMapping(value = "/{userId}", headers="content-type=text/*")
+	public ModelAndView showDetail(@PathVariable("userId") String userId,
+			@CookieValue("JSESSIONID") String sessionId, 
+			@RequestHeader("Accept-Language") String acceptLanguage) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/showDetail");
+		mav.addObject("user", new Student());
+		return mav;
+	}
+	
+	@RequestMapping("/new")
+	public String newStudent(Student student) {
+		return "success" + student.getName();
+	}
+	
+	@RequestMapping("/getName")
+	public String getMyName(HttpSession session) {
+		return (String)session.getAttribute("name");
+	}
+	
+	@RequestMapping("/handle")
+	public String handleStudent(WebRequest request) {
+		request.getParameter("userName");
+		return "success";
+	}
+	
+	@RequestMapping("/getLogo")
+	public void getLogo(OutputStream os) throws IOException {
+		ClassPathResource res = new ClassPathResource("/image.jpg");
+		FileCopyUtils.copy(res.getInputStream(), os);
+	}
+	
+	@RequestMapping("/handleFooBar")
+	public ResponseEntity<Student> handleFooBar(HttpEntity<String> httpEntity) {
+		System.out.println(httpEntity.getBody());
+		ResponseEntity<Student> re = new ResponseEntity<Student> (HttpStatus.OK);
+		return re;
+	}
+	
+	@RequestMapping("/handlev2")
+	public String handleStudentV2(@ModelAttribute("student") Student student) {
+		student.setAge(18);
+		return "/student/createSuccess";
+	}
+	
+	@ModelAttribute("student")
+	public Student getStudent() {
+		return new Student();
+	}
+	
+	@RequestMapping("/showme")
+	public String showMe(ModelMap modelMap, SessionStatus sessionStatus) {
+		modelMap.addAttribute("test", "value1");
+		Student student = (Student) modelMap.get("student");
+		sessionStatus.setComplete();
+		student.setxIndex(0);
+		return "/student/show";
+	}
 }
