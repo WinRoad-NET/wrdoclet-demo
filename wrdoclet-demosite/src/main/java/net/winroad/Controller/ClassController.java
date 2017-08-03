@@ -11,11 +11,7 @@ import javax.validation.constraints.NotNull;
 import net.winroad.Models.Clazz;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @tag Class
@@ -24,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @version 0.1
  * @memo init create
  */
-@Controller
+@RestController
 @Deprecated
 public class ClassController extends BaseController {
 	// 悲催，这种注释doclet不认
@@ -73,7 +69,7 @@ public class ClassController extends BaseController {
 	 * @memo fix bug
 	 * @returnCode 400 404 503
 	 */
-	@RequestMapping(value = "/class/del", method = RequestMethod.POST)
+	@PostMapping(value = "/class/del")
 	public @ResponseBody
 	Clazz delClass(@RequestBody @NotNull Clazz clazz, HttpServletRequest httpRequest,
 			HttpServletResponse httpResponse) {
@@ -92,7 +88,7 @@ public class ClassController extends BaseController {
 	 * @returnCode 400 404 503
 	 * @return the class list.
 	 */
-	@RequestMapping(value = {"/class/list","/class/listclass"}, method = RequestMethod.GET)
+	@GetMapping(value = {"/class/list","/class/listclass"})
 	public @ResponseBody
 	List<Clazz> listClass(HttpServletRequest httpRequest,
 			HttpServletResponse httpResponse) {
