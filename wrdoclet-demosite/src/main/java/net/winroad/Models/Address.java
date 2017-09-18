@@ -1,6 +1,8 @@
 package net.winroad.Models;
 
-public class Address {
+import java.io.Serializable;
+
+public class Address implements Serializable {
 	public String getCity() {
 		return city;
 	}

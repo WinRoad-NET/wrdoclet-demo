@@ -1,5 +1,6 @@
 package net.winroad.Models;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -12,7 +13,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  * @version 0.1
  * @memo init create
  */
-public class Person {
+public class Person implements Serializable{
 	private String name;
 	private int age;
 	@SuppressWarnings("unused")

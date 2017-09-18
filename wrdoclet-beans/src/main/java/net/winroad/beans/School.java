@@ -1,8 +1,9 @@
 package net.winroad.beans;
 
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
-public class School {
+public class School implements Serializable {
 	/**
 	 * 学校名称
 	 */
