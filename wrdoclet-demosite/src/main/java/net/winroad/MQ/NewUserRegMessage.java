@@ -8,6 +8,7 @@ import lombok.Setter;
 /**
  * 用户注册消息
  * @mqProducer GROUP:GroupA Topic:MQ-MSG-TOPICS-TEST 
+ * Created by ada on 2017.11.11
  * @author Ada
  */
 @Getter

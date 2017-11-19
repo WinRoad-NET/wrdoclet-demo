@@ -85,7 +85,8 @@ public class ClassController extends BaseController {
 	 * @author Bob 
 	 * @version 0.0.2 
 	 * @memo fix bug
-	 * @returnCode 400 404 503
+	 * @returnCode 400 404 
+	 * 503
 	 * @return the class list.
 	 */
 	@GetMapping(value = {"/class/list","/class/listclass"})
