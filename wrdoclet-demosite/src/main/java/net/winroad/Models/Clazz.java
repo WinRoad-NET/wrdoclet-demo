@@ -63,13 +63,16 @@ public class Clazz {
 	@Length(min = 3, max = 10)
 	@JsonProperty("className")
 	private String name;
+	
 	@NotEmpty
 	@Valid
 	private List<Student> students;
+	
 	@NotEmpty
 	@Valid
 	@JsonProperty()
 	private List<Clazz> relatedClasses;
+	
 	@SuppressFBWarnings(value="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD", justification = "just for demo")
 	public Map.Entry<Address, List<Person>> properties;
 }

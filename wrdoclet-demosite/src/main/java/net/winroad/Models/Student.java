@@ -51,12 +51,12 @@ public class Student extends Person {
 		this.school = school;
 	}
 
-	@NotNull
+	@NotNull(message = "学校不能为null")
 	@Valid
 	private transient School school;
 	
 	@JsonProperty("studentNo")
-	@NotEmpty(message = "sno should not be empty")
+	@NotEmpty(message = "sno 学号 should not be empty")
 	private String sno;
 
 	public String getTransientKey() {
