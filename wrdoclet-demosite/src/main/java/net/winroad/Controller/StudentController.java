@@ -26,10 +26,12 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import sun.misc.Resource;
@@ -169,4 +171,16 @@ public class StudentController {
 		student.setxIndex(0);
 		return "/student/show";
 	}
+	
+    @RequestMapping("/upload")
+    public String upload(@RequestPart("picture") byte[] picture) {
+        /* ... */
+    	return null;
+    }	
+    
+    @RequestMapping("/upload2")
+    public String upload2(@RequestPart(name="picture", required=false) MultipartFile picture) {
+        /* ... */
+    	return null;
+    }    
 }

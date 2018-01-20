@@ -14,4 +14,7 @@ public class DemoServiceImpl implements DemoService {
 		return null;
 	}
 	
+	public BankAlliance createBankAlliance() {
+		return null;
+	}
 }

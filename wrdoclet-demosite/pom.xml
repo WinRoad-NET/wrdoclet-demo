@@ -50,7 +50,7 @@
 					<docletArtifact>
 						<groupId>net.winroad</groupId>
 						<artifactId>wrdoclet</artifactId>
-						<version>1.1.6-SNAPSHOT</version>
+						<version>1.1.7-SNAPSHOT</version>
 					</docletArtifact>
 					<useStandardDocletOptions>false</useStandardDocletOptions><!-- important ! -->
 					<additionalparam>

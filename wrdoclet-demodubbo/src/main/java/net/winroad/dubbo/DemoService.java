@@ -13,4 +13,6 @@ public interface DemoService {
 	String sayHello(String name);
 	
 	List<String> sayHello(HashMap<String, LinkedList<Integer>> map);
+	
+	BankAlliance createBankAlliance();
 }
