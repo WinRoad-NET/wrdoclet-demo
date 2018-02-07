@@ -1,5 +1,6 @@
 package net.winroad.Models;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class Address implements Serializable {
@@ -46,6 +47,7 @@ public class Address implements Serializable {
 	 * 城市
 	 */
 	private String city;
+	@NotNull(message = "不能为空")
 	private String province;
 	/**
 	 * 县名

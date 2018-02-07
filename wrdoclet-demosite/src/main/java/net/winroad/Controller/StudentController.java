@@ -95,7 +95,7 @@ public class StudentController {
 		return student;
 	}
 
-	@RequestMapping(value = "/getgender/{name}", method = RequestMethod.GET)
+	@RequestMapping(value = "/getgender/{name}", method = {RequestMethod.GET, RequestMethod.OPTIONS})
 	public @ResponseBody
 	Gender getStudentGender(@PathVariable("name") String username) {
 		return Gender.MALE;

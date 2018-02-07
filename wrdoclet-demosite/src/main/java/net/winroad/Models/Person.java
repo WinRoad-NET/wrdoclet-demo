@@ -19,6 +19,8 @@ public class Person implements Serializable{
 	@SuppressWarnings("unused")
 	private double weight;
 	private Gender gender;
+
+	private Color color;
 	private double h;
 	/**
 	 * 是否成人
@@ -41,7 +43,15 @@ public class Person implements Serializable{
 	public void setAdult(boolean isAdult) {
 		this.isAdult = isAdult;
 	}
-	
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
 	public String getTEast() {
 		return this.name;
 	}
@@ -50,7 +60,7 @@ public class Person implements Serializable{
 		this.name = test;
 	}
 
-	@NotEmpty(message = "name should not be empty")
+	@NotEmpty(message = "name 不能为空")
 	public String getName() {
 		return name;
 	}

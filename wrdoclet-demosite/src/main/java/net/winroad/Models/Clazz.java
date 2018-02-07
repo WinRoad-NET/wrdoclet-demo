@@ -63,8 +63,8 @@ public class Clazz {
 	@Length(min = 3, max = 10)
 	@JsonProperty("className")
 	private String name;
-	
-	@NotEmpty
+
+	@NotEmpty(message = "不能为空")
 	@Valid
 	private List<Student> students;
 	
