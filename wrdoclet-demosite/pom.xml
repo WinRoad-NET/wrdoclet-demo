@@ -50,7 +50,7 @@
 					<docletArtifact>
 						<groupId>net.winroad</groupId>
 						<artifactId>wrdoclet</artifactId>
-						<version>1.2.0-SNAPSHOT</version>
+						<version>1.2.0</version>
 					</docletArtifact>
 					<useStandardDocletOptions>false</useStandardDocletOptions><!-- important ! -->
 					<additionalparam>
@@ -61,6 +61,9 @@
 						-d ../../../../../wrdoclet-gh-pages/apidocs-demosite
 						-springcontextconfigpath ${project.basedir}/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml
 						-excludedurlsxpath //:beans/mvc:interceptors/mvc:interceptor/:bean/:property/:list/:value
+						-showannotationlist net.winroad.Models.LoginAuthority,org.springframework.web.bind.annotation.RequestMapping
+						-authkeyword REQUEST_COOKIE_AUTH,REQUEST_BODY_AUTH
+						-noauthkeyword NO_AUTH,OPTIONAL_AUTH
 					</additionalparam>
 					<sourcepath>${project.basedir}/../wrdoclet-beans/src/main/java;${project.basedir}/src/main/java</sourcepath>
 					<subpackages>net.winroad.Controller</subpackages>

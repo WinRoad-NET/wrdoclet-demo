@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import net.winroad.Models.Gender;
+import net.winroad.Models.LoginAuthType;
+import net.winroad.Models.LoginAuthority;
 import net.winroad.Models.Student;
 
 import org.springframework.core.io.ClassPathResource;
@@ -124,6 +126,7 @@ public class StudentController {
 	}
 	
 	@RequestMapping("/new")
+	@LoginAuthority(authType = LoginAuthType.REQUEST_COOKIE_AUTH)
 	public String newStudent(Student student) {
 		return "success" + student.getName();
 	}
@@ -140,6 +143,7 @@ public class StudentController {
 	}
 	
 	@RequestMapping("/getLogo")
+	@LoginAuthority(authType = LoginAuthType.NO_AUTH)
 	public void getLogo(OutputStream os) throws IOException {
 		ClassPathResource res = new ClassPathResource("/image.jpg");
 		FileCopyUtils.copy(res.getInputStream(), os);

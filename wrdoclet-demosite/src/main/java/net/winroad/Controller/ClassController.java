@@ -10,6 +10,8 @@ import javax.validation.constraints.NotNull;
 
 import net.winroad.Models.Clazz;
 
+import net.winroad.Models.LoginAuthType;
+import net.winroad.Models.LoginAuthority;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.bind.annotation.*;
 
@@ -52,6 +54,7 @@ public class ClassController extends BaseController {
 	 @memo fix bug
 	 */
 	@RequestMapping(value = "/class/addlist", method = RequestMethod.POST)
+	@LoginAuthority(authType = LoginAuthType.REQUEST_COOKIE_AUTH)
 	public @ResponseBody
 	boolean addClassList(@RequestBody @NotEmpty @Valid List<Clazz> clazz, HttpServletRequest httpRequest,
 			HttpServletResponse httpResponse) {
