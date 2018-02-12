@@ -13,6 +13,6 @@ public class BaseAlliance implements Serializable {
 	private String id;
 	
 	public String toString() {
-		return null;
+		return "id:"+id;
 	}
 }
