@@ -21,6 +21,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -113,7 +114,7 @@ public class StudentController {
 		return username;
 	}
 	
-	@RequestMapping(value = "/{userId}", headers="content-type=text/*")
+	@RequestMapping(path = "/{userId}", produces="content-type=text/*")
 	public ModelAndView showDetail(@PathVariable("userId") String userId,
 			@CookieValue("JSESSIONID") String sessionId, 
 			@RequestHeader("Accept-Language") String acceptLanguage) {
@@ -162,6 +163,11 @@ public class StudentController {
 	
 	@ModelAttribute("student")
 	public Student getStudent() {
+		return new Student();
+	}
+	
+	@GetMapping(produces="application/json", headers = "version=2.0", params="myParam=myValue")
+	public Student getStudent2(ModelMap modelMap) {
 		return new Student();
 	}
 	

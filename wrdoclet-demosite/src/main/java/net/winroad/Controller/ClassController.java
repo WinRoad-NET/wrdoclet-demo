@@ -79,6 +79,14 @@ public class ClassController extends BaseController {
 		return clazz;
 	}
 	
+	@PostMapping(headers = "version=2.0", produces="application/json")
+	public @ResponseBody
+	Clazz addClassV2(@RequestBody @NotNull Clazz clazz, HttpServletRequest httpRequest,
+			HttpServletResponse httpResponse) {
+		return clazz;
+	}
+	
+	
 	/**
 	 * @brief list课程 
 	 * @tag Class 
@@ -92,7 +100,7 @@ public class ClassController extends BaseController {
 	 * 503
 	 * @return the class list.
 	 */
-	@GetMapping(value = {"/class/list","/class/listclass"})
+	@GetMapping(path = {"/class/list","/class/listclass"})
 	public @ResponseBody
 	List<Clazz> listClass(HttpServletRequest httpRequest,
 			HttpServletResponse httpResponse) {
