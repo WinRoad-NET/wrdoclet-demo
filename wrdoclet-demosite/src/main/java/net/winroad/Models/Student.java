@@ -43,6 +43,9 @@ public class Student extends Person {
 		this.sno = sno;
 	}
 
+	/**
+	 * @egexternalvalue 'http://example.org/examples/school-example.xml'
+	 */
 	public School getSchool() {
 		return school;
 	}

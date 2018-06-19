@@ -22,6 +22,10 @@ public class Clazz {
 	 * @version 0.0.2
 	 * @memo fix bla bla bla bla bla bla bla bla bug
 	 * @occurs required
+	 * @egname classname
+	 * @egsummary 课程名称
+	 * @egvalue 数学 语文 English
+	 * @egdescription 这是课程的描述
 	 */
 	public String getName() {
 		return name;

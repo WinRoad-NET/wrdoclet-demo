@@ -18,6 +18,10 @@ public class Person implements Serializable{
 	private int age;
 	@SuppressWarnings("unused")
 	private double weight;
+	/**
+	 * @egsummary 性别
+	 * @egvalue MALE
+	 */
 	private Gender gender;
 
 	private Color color;
@@ -32,6 +36,11 @@ public class Person implements Serializable{
 	private List<String> friendNames;
 	
 	public final static String PET_PHRASE = "MY GOD!";
+
+	/**
+	 * @egsummary 兴趣爱好
+	 * @egvalue cooking
+	 */
 	@SuppressFBWarnings(value="SS_SHOULD_BE_STATIC", justification = "just for demo")
 	public final String hobby = "hot girl";
 	public static String favStar = "Jackie Chen";

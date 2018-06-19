@@ -10,6 +10,9 @@ import lombok.Setter;
 public class BankAlliance<T extends Bank> extends BaseAlliance {
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * @egvalue 银联
+	 */
 	private String allianceName;
 	
 	private List<T> bankList;

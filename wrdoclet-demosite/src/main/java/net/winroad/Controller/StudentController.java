@@ -80,6 +80,25 @@ public class StudentController {
 		return student;
 	}
 
+	/**
+	 * 
+	 * @param student
+	 * @param username 名称
+	 * @egvalue student 
+	 * - username Bill Gates
+	 * - gender MALE
+	 * - age 68
+	 * - adult true
+	 * - height 182.8
+	 * - address
+	 * 	 - province beijing
+	 * @egname username examplename
+	 * @egsummary username summary of username
+	 * @egvalue username Kevin 
+	 * Smith
+	 * @egdescription username 这是学生的姓名， 可以通过姓名来删除
+	 * @return
+	 */
 	@RequestMapping(value = "/delete/{name}", method = RequestMethod.POST)
 	public @ResponseBody
 	String delStudent(@RequestBody(required=false) Student student,

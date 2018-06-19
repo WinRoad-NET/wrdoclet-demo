@@ -78,6 +78,9 @@ public interface TestService {
 	@WebMethod(operationName = "delUserTest")
 	public void delUser();
 	
+	/**
+	 * @egvalue userId 1001
+	 */
 	@WebMethod(operationName = "GetUserByTheId", action = "http://www.winroad.net/GetUserByTheId")
 	@WebResult(name = "getUserByIdResult")
 	@ResponseWrapper(localName = "GetUserByTheIdResponse", targetNamespace = "http://www.winroad.net/")
