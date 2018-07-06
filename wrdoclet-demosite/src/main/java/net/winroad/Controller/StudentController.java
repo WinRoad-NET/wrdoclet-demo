@@ -6,9 +6,12 @@ import java.io.OutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import net.winroad.Models.Address;
+import net.winroad.Models.Color;
 import net.winroad.Models.Gender;
 import net.winroad.Models.LoginAuthType;
 import net.winroad.Models.LoginAuthority;
+import net.winroad.Models.Person;
 import net.winroad.Models.Student;
 
 import org.springframework.core.io.ClassPathResource;
@@ -48,12 +51,15 @@ public class StudentController {
 	 */
 	@Deprecated
 	@RequestMapping(value = "name.{json|html}", method = RequestMethod.GET)
+	@net.winroad.config.JsonResult(type=Student.class, exclude= {"name", "color", "addr"})
 	public @ResponseBody
 	Student getStudentInJSON(@PathVariable("json|html") String name) {
 		Student s = new Student();
 		//s.setSno(sno);
 		s.setName(name);
+		s.setColor(Color.BLACK);
 		s.setAge(11);
+		s.setAddress(new Address());
 		return s;
 	}
 
@@ -133,7 +139,7 @@ public class StudentController {
 		return username;
 	}
 	
-	@RequestMapping(path = "/{userId}", produces="content-type=text/*")
+	@RequestMapping(path = "/{userId}", produces="text/plain")
 	public ModelAndView showDetail(@PathVariable("userId") String userId,
 			@CookieValue("JSESSIONID") String sessionId, 
 			@RequestHeader("Accept-Language") String acceptLanguage) {

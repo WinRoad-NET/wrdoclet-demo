@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>net.winroad</groupId>
-		<artifactId>wrdoclet-demo</artifactId>
-		<version>1.1.1-SNAPSHOT</version>
-	</parent>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.6.RELEASE</version>
+    </parent>
 	
 	<artifactId>wrdoclet-demosite</artifactId>
 	<version>1.1.1-SNAPSHOT</version>
@@ -32,9 +32,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>
-						1.5</source>
-					<target>1.5</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -50,7 +49,7 @@
 					<docletArtifact>
 						<groupId>net.winroad</groupId>
 						<artifactId>wrdoclet</artifactId>
-						<version>1.2.2</version>
+						<version>1.2.3-SNAPSHOT</version>
 					</docletArtifact>
 					<useStandardDocletOptions>false</useStandardDocletOptions><!-- important ! -->
 					<additionalparam>
@@ -64,6 +63,8 @@
 						-showannotationlist net.winroad.Models.LoginAuthority,org.springframework.web.bind.annotation.RequestMapping
 						-authkeyword REQUEST_COOKIE_AUTH,REQUEST_BODY_AUTH
 						-noauthkeyword NO_AUTH,OPTIONAL_AUTH
+						-cmzfieldexclude net.winroad.config.JsonResult.exclude 
+						-cmzfieldinclude net.winroad.config.JsonResult.include
 					</additionalparam>
 					<sourcepath>${project.basedir}/../wrdoclet-beans/src/main/java;${project.basedir}/src/main/java</sourcepath>
 					<subpackages>net.winroad.Controller</subpackages>
@@ -79,12 +80,6 @@
 		   <version>5.3.2.Final</version>
 		</dependency>	
 
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>3.0-alpha-1</version>
-		</dependency>
-		<!-- Spring dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -136,12 +131,12 @@
 			<version>3.0.1</version>
 		</dependency>
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.2.36</version>
 		</dependency>
-		
+		 -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -153,5 +148,16 @@
 		    <artifactId>rocketmq-client</artifactId>  
 		    <version>3.2.6</version>  
 		</dependency>  
+		
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>		
+        
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.7</version>  
+        </dependency>        
 	</dependencies>
 </project>

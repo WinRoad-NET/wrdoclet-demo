@@ -5,6 +5,11 @@ import java.util.List;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
@@ -13,6 +18,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  * @version 0.1
  * @memo init create
  */
+@JsonIgnoreProperties({"height", "xIndex"})
 public class Person implements Serializable{
 	private String name;
 	private int age;
@@ -32,6 +38,7 @@ public class Person implements Serializable{
 	private boolean isAdult;
 	private String LOGOURL;
 	private int xIndex;
+	@JsonInclude(JsonInclude.Include.NON_NULL) 
 	private Address address;
 	private List<String> friendNames;
 	
@@ -61,6 +68,7 @@ public class Person implements Serializable{
 		this.color = color;
 	}
 
+	@JsonIgnore
 	public String getTEast() {
 		return this.name;
 	}
@@ -78,6 +86,7 @@ public class Person implements Serializable{
 		this.name = name;
 	}
 
+	@JsonProperty("user_age")
 	public int getAge() {
 		return age;
 	}
@@ -120,6 +129,7 @@ public class Person implements Serializable{
 		return LOGOURL;
 	}
 
+	@JsonIgnore
 	public void setLOGOURL(String lOGOURL) {
 		LOGOURL = lOGOURL;
 	}
