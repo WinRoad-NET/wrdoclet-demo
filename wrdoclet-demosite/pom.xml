@@ -49,7 +49,7 @@
 					<docletArtifact>
 						<groupId>net.winroad</groupId>
 						<artifactId>wrdoclet</artifactId>
-						<version>1.2.3-SNAPSHOT</version>
+						<version>1.2.3</version>
 					</docletArtifact>
 					<useStandardDocletOptions>false</useStandardDocletOptions><!-- important ! -->
 					<additionalparam>
@@ -67,7 +67,7 @@
 						-cmzfieldinclude net.winroad.config.JsonResult.include
 					</additionalparam>
 					<sourcepath>${project.basedir}/../wrdoclet-beans/src/main/java;${project.basedir}/src/main/java</sourcepath>
-					<subpackages>net.winroad.Controller</subpackages>
+					<subpackages>net.winroad.Controller:net.winroad.MQ</subpackages>
 				</configuration>
 			</plugin>
 		</plugins>

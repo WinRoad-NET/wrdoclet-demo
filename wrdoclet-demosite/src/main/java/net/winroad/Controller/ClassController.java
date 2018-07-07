@@ -88,6 +88,7 @@ public class ClassController extends BaseController {
 	
 	
 	/**
+	 * @api /zuul/class/list, /zuul/class/listclass
 	 * @brief list课程 
 	 * @tag Class 
 	 * @author Adams 
