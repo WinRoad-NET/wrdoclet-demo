@@ -15,6 +15,7 @@
 		<wrdoclet.systemname>demosite</wrdoclet.systemname>
 		<wrdoclet.branchname>master</wrdoclet.branchname>
 		<wrdoclet.buildid>time</wrdoclet.buildid>
+		<wrdoclet.output>${project.basedir}/target/apidocs-demosite</wrdoclet.output>
 	</properties>
 	<build>
 		<plugins>
@@ -56,8 +57,8 @@
 						-systemname ${wrdoclet.systemname} 
 						-branchname ${wrdoclet.branchname} 
 						-buildid ${wrdoclet.buildid}
+						-d ${wrdoclet.output}
 						-charset utf-8 
-						-d ../../../../../wrdoclet-gh-pages/apidocs-demosite
 						-springcontextconfigpath ${project.basedir}/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml
 						-excludedurlsxpath //:beans/mvc:interceptors/mvc:interceptor/:bean/:property/:list/:value
 						-showannotationlist net.winroad.Models.LoginAuthority,org.springframework.web.bind.annotation.RequestMapping
