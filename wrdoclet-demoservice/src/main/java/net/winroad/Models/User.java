@@ -34,7 +34,7 @@ public class User {
 	}
 
 	/**
-	 * @egvalue 123456
+	 * @egvalue 1u2e3w4j5g6
 	 * @return 密码
 	 */
 	public String getPassword() {
