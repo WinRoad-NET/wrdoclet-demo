@@ -46,7 +46,7 @@ public class Person implements Serializable{
 
 	/**
 	 * @egsummary 兴趣爱好
-	 * @egvalue cooking
+	 * @egvalue cooking, movie
 	 */
 	@SuppressFBWarnings(value="SS_SHOULD_BE_STATIC", justification = "just for demo")
 	public final String hobby = "hot girl";
