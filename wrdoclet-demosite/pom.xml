@@ -10,7 +10,7 @@
 	<version>1.1.1-SNAPSHOT</version>
 	<description>demo site for wrdoclet</description>
 	<properties>
-		<spring.version>5.3.5</spring.version>
+		<spring.version>5.3.19</spring.version>
 		<jackson-version>2.12.2</jackson-version>
 		<wrdoclet.systemname>demosite</wrdoclet.systemname>
 		<wrdoclet.branchname>master</wrdoclet.branchname>
