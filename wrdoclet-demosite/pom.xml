@@ -11,7 +11,7 @@
 	<description>demo site for wrdoclet</description>
 	<properties>
 		<spring.version>5.3.5</spring.version>
-		<jackson-version>2.12.2</jackson-version>
+		<jackson-version>2.12.7.1</jackson-version>
 		<wrdoclet.systemname>demosite</wrdoclet.systemname>
 		<wrdoclet.branchname>master</wrdoclet.branchname>
 		<wrdoclet.buildid>time</wrdoclet.buildid>
